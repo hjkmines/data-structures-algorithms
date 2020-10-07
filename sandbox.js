@@ -69,9 +69,42 @@ function sum(n, m) {
     return n + m 
 }
 
+//TOPIC 1: DO YOU UNDERSTAND THE PROBLEM?
 //Can I restate the problem in my own words?
-
 //What are the inputs that go into the problem?
-
 //What are the outputs that should come from the solution to the problem?
 
+//TOPIC 2: Concrete examples
+
+//Challenge 2: 
+let characters = 'Your PIN is 1234';  
+
+function charCount(str) {
+    //make object to return at end 
+    //loop over string, make new key for letter or number if it doesn't exist already, if it already exists, inc one up.
+    //if it is a space, period, etc. don't count it  
+    //return object at end 
+
+    let charObject = {}; 
+
+    let arrayOfChars = str.split('') //['y', 'o', ...]
+    
+    for (let i = 0; i < arrayOfChars.length; i++) {
+        if (typeof arrayOfChars[i] === String) {
+            arrayOfChars[i].toLowerCase(); 
+        }
+        
+        if (charObject.hasOwnProperty(arrayOfChars[i])) {
+            charObject.arrayOfChars[i] += 1; 
+        } else {
+            charObject.arrayOfChars = 1; 
+        }
+
+    return charObject; 
+
+    }
+
+
+
+
+}
