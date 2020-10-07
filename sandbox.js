@@ -64,3 +64,14 @@ word2.join(''); //returns 'hellotony'
 word2.join(' ') //returns 'hello tony'
 word2.join(',') //returns 'hello,tony; 
 
+//Write a function which takes two numbers and returns their sum 
+function sum(n, m) {
+    return n + m 
+}
+
+//Can I restate the problem in my own words?
+
+//What are the inputs that go into the problem?
+
+//What are the outputs that should come from the solution to the problem?
+
