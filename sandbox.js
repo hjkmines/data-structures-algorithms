@@ -104,6 +104,7 @@ function charCount(str) {
 }
 
 //Anagrams check, given two strings, write a function to determine if the second string is an anagram of the first. 
+//Utlizes the frequency counter pattern 
 let firstWord = 'hello'; 
 let secondWord = 'elloh'; 
 
@@ -135,4 +136,23 @@ function checkAnagram(word1, word2) {
     }
 
     return true; 
+}
+
+//Using the Multiple Pointers pattern 
+let sortedArray = [-2, -1, 0, 1, 2]; 
+
+function findPairEqualToZero(sortedArray) {
+    let left = 0; 
+    let right = sortedArray.length - 1
+
+    while (left < right) {
+        let sum = sortedArray[left] + sortedArray[right]
+        if ( sum === 0) {
+            return [sortedArray[left], sortedArray[right]]
+        } else if (sum > 0) {
+            right--; 
+        } else {
+            left++
+        }
+    }
 }
