@@ -181,3 +181,28 @@ function countUniqueNumbers(array) {
 }
 
 console.log(countUniqueNumbers(arraySample)); 
+
+//Find max sum on pairs of n 
+ let arrayNumbers = [1, 2, 3, 4, 4, 3, 5, 32]; 
+
+ function maxSubArraySum(arr, num) {
+     let max = 0; 
+     let temp = 0; 
+
+     if (arr.length < num) {
+         return null
+     }
+
+     for (let i = 0; i < num; i++) {
+         max += arr[i]; 
+     }
+
+     temp = max; 
+
+     for (let i = 0; i < arr.length; i++) {
+         temp = temp - arr[i - num] + arr[i]
+         max = Math.max(max, temp)
+     }
+
+     return max; 
+ }
