@@ -112,26 +112,27 @@ function checkAnagram(word1, word2) {
     //compare the count between the objects 
     //if the frequency are the same, return true, else false 
 
-    let firstObject = {}; 
-    let secondObject = {}; 
-    let firstArray = word1.split(''); 
-    let secondArray = word2.split(''); 
+    if (word1.length !== word2.length) {
+        return false; 
+    }
 
-    for (let i = 0; i < firstArray.length; i++) {
-        if (firstObject.hasOwnProperty(firstArray[i])) {
-            firstObject.firstArray[i] += 1; 
+    const collection = {}; 
+
+    for (let i = 0; i < word1.length; i++) {
+        let letter = word1[i]; 
+
+        collection[letter] ? collection[letter] += 1 : collection[letter] = 1; 
+    }
+
+    for (let i = 0; i < word2.length; i++) {
+        let letter = word2[i]; 
+
+        if (!collection[letter]) {
+            return false; 
         } else {
-            firstObject.firstArray[i] = 1; 
+            collection[letter] -= 1; 
         }
     }
 
-    for (let i = 0; i < secondArray.length; i++) {
-        if (secondObject.hasOwnProperty(secondArray[i])) {
-            secondObject.secondArray[i] += 1; 
-        } else {
-            secondObject.secondArray[i] = 1; 
-        }
-    }
-
-    
+    return true; 
 }
