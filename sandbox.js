@@ -99,12 +99,39 @@ function charCount(str) {
         } else {
             charObject.arrayOfChars = 1; 
         }
-
+    }
     return charObject; 
+}
 
+//Anagrams check, given two strings, write a function to determine if the second string is an anagram of the first. 
+let firstWord = 'hello'; 
+let secondWord = 'elloh'; 
+
+function checkAnagram(word1, word2) {
+    //create new objects to count the frequency of each word 
+    //compare the count between the objects 
+    //if the frequency are the same, return true, else false 
+
+    let firstObject = {}; 
+    let secondObject = {}; 
+    let firstArray = word1.split(''); 
+    let secondArray = word2.split(''); 
+
+    for (let i = 0; i < firstArray.length; i++) {
+        if (firstObject.hasOwnProperty(firstArray[i])) {
+            firstObject.firstArray[i] += 1; 
+        } else {
+            firstObject.firstArray[i] = 1; 
+        }
     }
 
+    for (let i = 0; i < secondArray.length; i++) {
+        if (secondObject.hasOwnProperty(secondArray[i])) {
+            secondObject.secondArray[i] += 1; 
+        } else {
+            secondObject.secondArray[i] = 1; 
+        }
+    }
 
-
-
+    
 }
