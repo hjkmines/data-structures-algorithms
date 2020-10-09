@@ -69,6 +69,17 @@
 //     return n + m 
 // }
 
+// //Looping through objects by key 
+// let someObj = {a: 1, b: 2, c: 3}
+
+// for (let key in someObj) {
+//     console.log(key)
+// } //outputs a, b, c
+
+// for (let values of someObj) {
+//     console.log(values)
+// } //outputs 1, 2, 3
+
 // //TOPIC 1: DO YOU UNDERSTAND THE PROBLEM?
 // //Can I restate the problem in my own words?
 // //What are the inputs that go into the problem?
@@ -157,75 +168,107 @@
 //     }
 // }
 
-//Using the multiple pointers pattern, count the number of unique numbers in the array list 
-//e.g. [1, 1, 3] 2 unique numbers 
+// //Using the multiple pointers pattern, count the number of unique numbers in the array list 
+// //e.g. [1, 1, 3] 2 unique numbers 
 
-let arraySample = [-2, -2, 0, 1, 1, 1, 3, 3, 5] 
+// let arraySample = [-2, -2, 0, 1, 1, 1, 3, 3, 5] 
 
-function countUniqueNumbers(array) {
-    //double for loop that has i and j where i and j are compared based on j's next index
-    //if i and j match, replace new index with j's value 
+// function countUniqueNumbers(array) {
+//     //double for loop that has i and j where i and j are compared based on j's next index
+//     //if i and j match, replace new index with j's value 
 
-    let uniqueNumbers = [array[0]]; 
+//     let uniqueNumbers = [array[0]]; 
 
-    let i = array[0];
+//     let i = array[0];
 
-    for (let j = 0; j < array.length; j++) {
-        if (i !== array[j]) {
-            uniqueNumbers.push(array[j]); 
-            i = array[j] 
-        }
-    }
+//     for (let j = 0; j < array.length; j++) {
+//         if (i !== array[j]) {
+//             uniqueNumbers.push(array[j]); 
+//             i = array[j] 
+//         }
+//     }
 
-    return uniqueNumbers.length; 
-}
+//     return uniqueNumbers.length; 
+// }
 
-console.log(countUniqueNumbers(arraySample)); 
+// console.log(countUniqueNumbers(arraySample)); 
 
-//Find max sum on pairs of n 
- let arrayNumbers = [1, 2, 3, 4, 4, 3, 5, 32]; 
+// //Find max sum on pairs of n 
+//  let arrayNumbers = [1, 2, 3, 4, 4, 3, 5, 32]; 
 
- function maxSubArraySum(arr, num) {
-     let max = 0; 
-     let temp = 0; 
+//  function maxSubArraySum(arr, num) {
+//      let max = 0; 
+//      let temp = 0; 
 
-     if (arr.length < num) {
-         return null
+//      if (arr.length < num) {
+//          return null
+//      }
+
+//      for (let i = 0; i < num; i++) {
+//          max += arr[i]; 
+//      }
+
+//      temp = max; 
+
+//      for (let i = 0; i < arr.length; i++) {
+//          temp = temp - arr[i - num] + arr[i]
+//          max = Math.max(max, temp)
+//      }
+
+//      return max; 
+//  }
+
+//  //Divide and conquer algorithm 
+//  //Find index of specified number in array
+
+//  function search(array, val) {
+//      let min = 0; 
+//      let max = array.length - 1; 
+
+//      while (min <= max) {
+//          let middle = Math.floor((min + max) / 2); 
+//          let currentElement = array[middle]; 
+
+//          if (array[middle] < val) {
+//              min = middle + 1 
+//          } else if (array[middle] > val) {
+//             max = middle + 1
+//          } else {
+//              return middle; 
+//          }
+//      }
+
+//      return -1; 
+//  }
+
+ //Write a function called sameFrequency. Given two positive integers, find out if the two numbers have the same frequency of digits. 
+
+ function sameFrequency(firstNumber, secondNumber) {
+     //Utilize the frequency counter 
+     let collection = {}; 
+
+     if (firstNumber.length !== secondNumber.length) {
+         return false; 
      }
 
-     for (let i = 0; i < num; i++) {
-         max += arr[i]; 
-     }
-
-     temp = max; 
-
-     for (let i = 0; i < arr.length; i++) {
-         temp = temp - arr[i - num] + arr[i]
-         max = Math.max(max, temp)
-     }
-
-     return max; 
- }
-
- //Divide and conquer algorithm 
- //Find index of specified number in array
-
- function search(array, val) {
-     let min = 0; 
-     let max = array.length - 1; 
-
-     while (min <= max) {
-         let middle = Math.floor((min + max) / 2); 
-         let currentElement = array[middle]; 
-
-         if (array[middle] < val) {
-             min = middle + 1 
-         } else if (array[middle] > val) {
-            max = middle + 1
+     for (let i = 0; i < firstNumber.length; i++) {
+         if (!collection.hasOwnProperty(firstNumber[i])) {
+             collection[firstNumber[i]] = 1; 
          } else {
-             return middle; 
+             collection[firstNumber[i]] += 1; 
          }
      }
 
-     return -1; 
+     for (let i = 0; i < secondNumber.length; i++) {
+         if (collection.hasOwnProperty(secondNumber[i])) {
+             collection[secondNumber[i]] -= 1; 
+         } else {
+             return false; 
+         }
+     }
+
+     return true; 
+
  }
+
+ console.log(sameFrequency('1234', '1246'))
