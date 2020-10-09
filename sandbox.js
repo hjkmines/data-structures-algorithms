@@ -243,32 +243,53 @@
 
  //Write a function called sameFrequency. Given two positive integers, find out if the two numbers have the same frequency of digits. 
 
- function sameFrequency(firstNumber, secondNumber) {
-     //Utilize the frequency counter 
+//  function sameFrequency(firstNumber, secondNumber) {
+//      //Utilize the frequency counter 
+//      let collection = {}; 
+
+//      if (firstNumber.length !== secondNumber.length) {
+//          return false; 
+//      }
+
+//      for (let i = 0; i < firstNumber.length; i++) {
+//          if (!collection.hasOwnProperty(firstNumber[i])) {
+//              collection[firstNumber[i]] = 1; 
+//          } else {
+//              collection[firstNumber[i]] += 1; 
+//          }
+//      }
+
+//      for (let i = 0; i < secondNumber.length; i++) {
+//          if (collection.hasOwnProperty(secondNumber[i])) {
+//              collection[secondNumber[i]] -= 1; 
+//          } else {
+//              return false; 
+//          }
+//      }
+
+//      return true; 
+
+//  }
+
+ //Implement a function called, areThereDuplicates which accepts a varialbe of arguments, and checks whether there
+ //are any duplicates among the arguments passed in. You can solve this using the frequency pattern or the multiple pointers pattern. 
+ // 1, 2, 3    is false 
+ // 1, 2, 2, 3  is true 
+
+ function areThereDuplicates(array) {
+     //for loop using the multiple pointers pattern 
+
      let collection = {}; 
 
-     if (firstNumber.length !== secondNumber.length) {
-         return false; 
-     }
-
-     for (let i = 0; i < firstNumber.length; i++) {
-         if (!collection.hasOwnProperty(firstNumber[i])) {
-             collection[firstNumber[i]] = 1; 
-         } else {
-             collection[firstNumber[i]] += 1; 
-         }
-     }
-
-     for (let i = 0; i < secondNumber.length; i++) {
-         if (collection.hasOwnProperty(secondNumber[i])) {
-             collection[secondNumber[i]] -= 1; 
+     for (let i = 0; i < array.length; i++) {
+         if (!collection.hasOwnProperty(array[i])) {
+             collection[array[i]] = 1;  
          } else {
              return false; 
          }
      }
 
      return true; 
-
  }
 
- console.log(sameFrequency('1234', '1246'))
+ console.log(areThereDuplicates([1, 2, 3, 2]))
