@@ -342,3 +342,30 @@
  }
 
  console.log(isSubsequence('hellod', 'fsihello')); 
+
+ //Given an array of integers and a number, write a function called maxSubarraySum, which finds the maximum sum of a subarray with the length 
+ //of the number passed to the function
+
+ function maxSubArraySum(array, length) {
+     if (array.length < length) {
+         return false; 
+     }
+
+     let sum = 0; 
+     let max = 0; 
+
+     for (let i = 0; i < length; i++) {
+        max += array[i]; 
+     }
+
+     sum = max; 
+
+     for (let i = 0; i < array.length; i++) {
+         sum = sum - array[i - length] + array[i]; 
+         max = Math.max(max, sum)
+     }
+
+     return max; 
+ }
+
+// 1, 2, 3, 4, 5     length of 2
