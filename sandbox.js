@@ -276,20 +276,47 @@
  // 1, 2, 3    is false 
  // 1, 2, 2, 3  is true 
 
- function areThereDuplicates(array) {
-     //for loop using the multiple pointers pattern 
+//  function areThereDuplicates(array) {
+//      //for loop using the multiple pointers pattern 
 
-     let collection = {}; 
+//      let collection = {}; 
 
-     for (let i = 0; i < array.length; i++) {
-         if (!collection.hasOwnProperty(array[i])) {
-             collection[array[i]] = 1;  
-         } else {
-             return false; 
-         }
-     }
+//      for (let i = 0; i < array.length; i++) {
+//          if (!collection.hasOwnProperty(array[i])) {
+//              collection[array[i]] = 1;  
+//          } else {
+//              return false; 
+//          }
+//      }
 
-     return true; 
- }
+//      return true; 
+//  }
 
- console.log(areThereDuplicates([1, 2, 3, 2]))
+//  console.log(areThereDuplicates([1, 2, 3, 2]))
+
+ //Write a function called averagePair. Given a sorted array of integers and a target average, determine if there is a pair of values in 
+ //this array where the average of the pair equals the target average. There may be more than one pair that matches the average target. 
+
+ function averagePair(array, targetValue) {
+    //Using multiple pointers, i and j, initialize at i and move j, add them together, check avg against target value, if false, move over to next j index. 
+    //Once j is at the end, if it is still false, move i and j to the beginning again. 
+
+    let i = 0; 
+    let j = 1; 
+
+    while (array.indexOf(array[i]) < array.length - 1) {
+        if ((array[i] + array[j]) / 2 === targetValue) {
+            return true; 
+        } else if (array.indexOf(array[j]) === array.length - 1){
+            i++; 
+            j = i + 2;  
+        } else {
+            j++;  
+        }
+    }
+
+    return false; 
+
+ } 
+
+ console.log(averagePair([1, 2, 2], 2)); 
