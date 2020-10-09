@@ -301,17 +301,18 @@
     //Using multiple pointers, i and j, initialize at i and move j, add them together, check avg against target value, if false, move over to next j index. 
     //Once j is at the end, if it is still false, move i and j to the beginning again. 
 
-    let i = 0; 
-    let j = 1; 
+    let start = 0; 
+    let end = array.lengh - 1; 
 
-    while (array.indexOf(array[i]) < array.length - 1) {
-        if ((array[i] + array[j]) / 2 === targetValue) {
+    while (start < end) {
+        let avg = (array[start] + array[end]) / 2; 
+        
+        if (avg === targetValue) {
             return true; 
-        } else if (array.indexOf(array[j]) === array.length - 1){
-            i++; 
-            j = i + 2;  
+        } else if (avg < targetValue) {
+            start++; 
         } else {
-            j++;  
+            end--; 
         }
     }
 
@@ -319,4 +320,4 @@
 
  } 
 
- console.log(averagePair([1, 2, 2], 2)); 
+ console.log(averagePair([1, 2, 2, 2], 2)); 
