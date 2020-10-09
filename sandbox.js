@@ -297,27 +297,48 @@
  //Write a function called averagePair. Given a sorted array of integers and a target average, determine if there is a pair of values in 
  //this array where the average of the pair equals the target average. There may be more than one pair that matches the average target. 
 
- function averagePair(array, targetValue) {
-    //Using multiple pointers, i and j, initialize at i and move j, add them together, check avg against target value, if false, move over to next j index. 
-    //Once j is at the end, if it is still false, move i and j to the beginning again. 
+//  function averagePair(array, targetValue) {
+//     //Using multiple pointers, i and j, initialize at i and move j, add them together, check avg against target value, if false, move over to next j index. 
+//     //Once j is at the end, if it is still false, move i and j to the beginning again. 
 
-    let start = 0; 
-    let end = array.lengh - 1; 
+//     let start = 0; 
+//     let end = array.lengh - 1; 
 
-    while (start < end) {
-        let avg = (array[start] + array[end]) / 2; 
+//     while (start < end) {
+//         let avg = (array[start] + array[end]) / 2; 
         
-        if (avg === targetValue) {
-            return true; 
-        } else if (avg < targetValue) {
-            start++; 
-        } else {
-            end--; 
+//         if (avg === targetValue) {
+//             return true; 
+//         } else if (avg < targetValue) {
+//             start++; 
+//         } else {
+//             end--; 
+//         }
+//     }
+
+//     return false; 
+
+//  } 
+
+ //wriet a function called isSubsequence which takes in two strings and checks whether the characters in the first string form a 
+ //subsequence of the characters in the second string. In other words, function should check whether the characters in the first string appear somewhere in the second string without the order change. 
+
+ function isSubsequence(string1, string2) {
+    let array1 = string1.split(''); 
+    let array2 = string2.split(''); 
+    let compare = []
+
+    for (let i = 0; i < array2.length; i++) {
+        if (array1.includes(array2[i])) {
+            compare.push(array2[i])
         }
     }
 
-    return false; 
+    if (array1.join('') === compare.join('')) {
+        return true; 
+    } else {
+        return false; 
+    }
+ }
 
- } 
-
- 
+ console.log(isSubsequence('hellod', 'fsihello')); 
