@@ -467,28 +467,32 @@
 
 //Mini-max problem 
 
-function minMax(array) {
-    //given an input of a array of 5 numbers
-    //output an array that gives the min on the four lowest numbers 
+// function minMax(array) {
+//     //given an input of a array of 5 numbers
+//     //output an array that gives the min on the four lowest numbers 
 
-    //first, sort the numbers from smallest to largest, then have two iterations of summing the first four and last four elements 
+//     //first, sort the numbers from smallest to largest, then have two iterations of summing the first four and last four elements 
 
-    let sortedArray = array.sort((a,b) => a-b); 
-    let min = 0; 
-    let max = 0; 
+//     let sortedArray = array.sort((a,b) => a-b); 
+//     let min = 0; 
+//     let max = 0; 
 
-    for (let i = 0; i < 4; i++) {
-        min += sortedArray[i]
-    }
+//     for (let i = 0; i < 4; i++) {
+//         min += sortedArray[i]
+//     }
 
-    for (let i = 1; i < sortedArray.length; i++) {
-        max += sortedArray[i]
-    }
-    return `${min} ${max}`
-}
+//     for (let i = 1; i < sortedArray.length; i++) {
+//         max += sortedArray[i]
+//     }
+//     return `${min} ${max}`
+// }
 
-console.log(minMax([2, 33, 8, 23, 10])); 
+// console.log(minMax([2, 33, 8, 23, 10])); 
 
+
+// apple orange problem 
+
+function fallingFruits()
 
 
 
