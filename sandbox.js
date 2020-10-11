@@ -427,7 +427,7 @@ function gradingStudents(grades) {
     //return new array with adjusted rounding 
 
     const curvedGrades = grades.map(grade => {
-        if ( grade < 40) {
+        if ( grade < 38) {
             return grade; 
         } else if ((Math.abs(grade - Math.ceil((grade/5)) * 5)) < 3) {
             return Math.ceil(grade/5) * 5; 
