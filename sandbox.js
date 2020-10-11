@@ -442,33 +442,52 @@
 
 // console.log(gradingStudents(studentGrades)); 
 
-function migratoryBirds(num, arr) {
-    //first input is the number of sightings of each bird, second input is the array of birds 
-    //return the most frequently encountered bird in the array data set 
-    //if their is a equal amount of bird sightings for two or more birds, return the first one 
+// function migratoryBirds(num, arr) {
+//     //first input is the number of sightings of each bird, second input is the array of birds 
+//     //return the most frequently encountered bird in the array data set 
+//     //if their is a equal amount of bird sightings for two or more birds, return the first one 
 
-    //Set a empty object to count the frequency, select the first one that has the most frequency 
-    let birdFrequency = {}; 
+//     //Set a empty object to count the frequency, select the first one that has the most frequency 
+//     let birdFrequency = {}; 
 
-    arr.forEach(bird => {
-        if (!birdFrequency.hasOwnProperty(bird)) {
-            birdFrequency[bird] = 1; 
-        } else {
-            birdFrequency[bird] += 1; 
-        }   
-    })
+//     arr.forEach(bird => {
+//         if (!birdFrequency.hasOwnProperty(bird)) {
+//             birdFrequency[bird] = 1; 
+//         } else {
+//             birdFrequency[bird] += 1; 
+//         }   
+//     })
 
-    const mostFrequentBird = Object.keys(birdFrequency).reduce((a, b) => birdFrequency[a] > birdFrequency[b] ? a : b ); 
+//     const mostFrequentBird = Object.keys(birdFrequency).reduce((a, b) => birdFrequency[a] > birdFrequency[b] ? a : b ); 
 
-    return mostFrequentBird; 
+//     return mostFrequentBird; 
+// }
+
+// console.log(migratoryBirds(6, [1, 1, 2, 2, 4, 5]))
+
+//Mini-max problem 
+
+function minMax(array) {
+    //given an input of a array of 5 numbers
+    //output an array that gives the min on the four lowest numbers 
+
+    //first, sort the numbers from smallest to largest, then have two iterations of summing the first four and last four elements 
+
+    let sortedArray = array.sort((a,b) => a-b); 
+    let min = 0; 
+    let max = 0; 
+
+    for (let i = 0; i < 4; i++) {
+        min += sortedArray[i]
+    }
+
+    for (let i = 1; i < sortedArray.length; i++) {
+        max += sortedArray[i]
+    }
+    return `${min} ${max}`
 }
 
-console.log(migratoryBirds(6, [1, 1, 2, 2, 4, 5]))
-
-
-
-
-
+console.log(minMax([2, 33, 8, 23, 10])); 
 
 
 
