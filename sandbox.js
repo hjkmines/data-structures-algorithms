@@ -417,28 +417,62 @@
 //IF grade different between the next multiple of 5 is less than 3, round up to that number. 
 //IF grade is less than 40, it is considered failing 
 
-let studentGrades = [19, 35, 40, 67, 69, 75, 88, 100, 91]
+// let studentGrades = [19, 35, 40, 67, 69, 75, 88, 100, 91]
 
-function gradingStudents(grades) {
-    //input array of grades 
-    //do a for loop of each grade using a map iteration 
-    //set up condition in map that checks number against the next multiple of 5, if the diff is < 2, round to the next multiple 
-    //if it is less than 40, keep that number 
-    //return new array with adjusted rounding 
+// function gradingStudents(grades) {
+//     //input array of grades 
+//     //do a for loop of each grade using a map iteration 
+//     //set up condition in map that checks number against the next multiple of 5, if the diff is < 2, round to the next multiple 
+//     //if it is less than 40, keep that number 
+//     //return new array with adjusted rounding 
 
-    const curvedGrades = grades.map(grade => {
-        if ( grade < 38) {
-            return grade; 
-        } else if ((Math.abs(grade - Math.ceil((grade/5)) * 5)) < 3) {
-            return Math.ceil(grade/5) * 5; 
+//     const curvedGrades = grades.map(grade => {
+//         if ( grade < 38) {
+//             return grade; 
+//         } else if ((Math.abs(grade - Math.ceil((grade/5)) * 5)) < 3) {
+//             return Math.ceil(grade/5) * 5; 
+//         } else {
+//             return grade; 
+//         }
+//     })
+
+//     return curvedGrades;
+
+// }
+
+// console.log(gradingStudents(studentGrades)); 
+
+function migratoryBirds(num, arr) {
+    //first input is the number of sightings of each bird, second input is the array of birds 
+    //return the most frequently encountered bird in the array data set 
+    //if their is a equal amount of bird sightings for two or more birds, return the first one 
+
+    //Set a empty object to count the frequency, select the first one that has the most frequency 
+    let birdFrequency = {}; 
+
+    arr.forEach(bird => {
+        if (!birdFrequency.hasOwnProperty(bird)) {
+            birdFrequency[bird] = 1; 
         } else {
-            return grade; 
-        }
+            birdFrequency[bird] += 1; 
+        }   
     })
 
-    return curvedGrades;
+    const mostFrequentBird = Object.keys(birdFrequency).reduce((a, b) => birdFrequency[a] > birdFrequency[b] ? a : b ); 
 
+    return mostFrequentBird; 
 }
 
-console.log(gradingStudents(studentGrades)); 
+console.log(migratoryBirds(6, [1, 1, 2, 2, 4, 5]))
+
+
+
+
+
+
+
+
+
+
+
 
