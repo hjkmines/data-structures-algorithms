@@ -417,6 +417,8 @@
 //IF grade different between the next multiple of 5 is less than 3, round up to that number. 
 //IF grade is less than 40, it is considered failing 
 
+let studentGrades = [19, 35, 40, 67, 69, 75, 88, 100, 91]
+
 function gradingStudents(grades) {
     //input array of grades 
     //do a for loop of each grade using a map iteration 
@@ -425,18 +427,18 @@ function gradingStudents(grades) {
     //return new array with adjusted rounding 
 
     const curvedGrades = grades.map(grade => {
-    if (grade < 40) {
-        grade; 
-    } else if ((Math.abs(grade - Math.ceil(grade/5)*5)) < 3) {
-            Math.ceil(grade/5) * 5;  
-    } else {
-        grade; 
-    }
+        if ( grade < 40) {
+            return grade; 
+        } else if ((Math.abs(grade - Math.ceil((grade/5)) * 5)) < 3) {
+            return Math.ceil(grade/5) * 5; 
+        } else {
+            return grade; 
+        }
+    })
 
-    return curvedGrades; 
+    return curvedGrades;
 
-})
 }
 
-console.log(gradingStudents([19, 35, 40, 67, 69, 75, 88, 100, 91])); 
+console.log(gradingStudents(studentGrades)); 
 
