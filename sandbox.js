@@ -323,90 +323,120 @@
  //wriet a function called isSubsequence which takes in two strings and checks whether the characters in the first string form a 
  //subsequence of the characters in the second string. In other words, function should check whether the characters in the first string appear somewhere in the second string without the order change. 
 
- function isSubsequence(string1, string2) {
-    let array1 = string1.split(''); 
-    let array2 = string2.split(''); 
-    let compare = []
+//  function isSubsequence(string1, string2) {
+//     let array1 = string1.split(''); 
+//     let array2 = string2.split(''); 
+//     let compare = []
 
-    for (let i = 0; i < array2.length; i++) {
-        if (array1.includes(array2[i])) {
-            compare.push(array2[i])
-        }
-    }
+//     for (let i = 0; i < array2.length; i++) {
+//         if (array1.includes(array2[i])) {
+//             compare.push(array2[i])
+//         }
+//     }
 
-    if (array1.join('') === compare.join('')) {
-        return true; 
-    } else {
-        return false; 
-    }
- }
+//     if (array1.join('') === compare.join('')) {
+//         return true; 
+//     } else {
+//         return false; 
+//     }
+//  }
 
- console.log(isSubsequence('hellod', 'fsihello')); 
+//  console.log(isSubsequence('hellod', 'fsihello')); 
 
- //Given an array of integers and a number, write a function called maxSubarraySum, which finds the maximum sum of a subarray with the length 
- //of the number passed to the function
+//  //Given an array of integers and a number, write a function called maxSubarraySum, which finds the maximum sum of a subarray with the length 
+//  //of the number passed to the function
 
- function maxSubArraySum(array, length) {
-     if (array.length < length) {
-         return false; 
-     }
+//  function maxSubArraySum(array, length) {
+//      if (array.length < length) {
+//          return false; 
+//      }
 
-     let sum = 0; 
-     let max = 0; 
+//      let sum = 0; 
+//      let max = 0; 
 
-     for (let i = 0; i < length; i++) {
-        max += array[i]; 
-     }
+//      for (let i = 0; i < length; i++) {
+//         max += array[i]; 
+//      }
 
-     sum = max; 
+//      sum = max; 
 
-     for (let i = 0; i < array.length; i++) {
-         sum = sum - array[i - length] + array[i]; 
-         max = Math.max(max, sum)
-     }
+//      for (let i = 0; i < array.length; i++) {
+//          sum = sum - array[i - length] + array[i]; 
+//          max = Math.max(max, sum)
+//      }
 
-     return max; 
- }
+//      return max; 
+//  }
 
-//  Write a JavaScript program to get the highest index at which value should be inserted into array in order to maintain its sort order.
-const sortedLastIndex = (arr, n) => {
-    const isDescending = arr[0] > arr[arr.length - 1];
-    const index = arr.reverse().findIndex(el => (isDescending ? n <= el : n >= el));
-    return index === -1 ? 0 : arr.length - index;
-  };
+// //  Write a JavaScript program to get the highest index at which value should be inserted into array in order to maintain its sort order.
+// const sortedLastIndex = (arr, n) => {
+//     const isDescending = arr[0] > arr[arr.length - 1];
+//     const index = arr.reverse().findIndex(el => (isDescending ? n <= el : n >= el));
+//     return index === -1 ? 0 : arr.length - index;
+//   };
   
-  console.log(sortedLastIndex([10, 20, 30, 30, 40], 30));
+//   console.log(sortedLastIndex([10, 20, 30, 30, 40], 30));
 
 
 //   Write a JavaScript program to sort a list of elements using Quick sort.
 
 // Quick sort is a comparison sort, meaning that it can sort items of any type for which a "less-than" relation (formally, a total order) is defined.
 
-function quick_Sort(origArray) {
-	if (origArray.length <= 1) { 
-		return origArray;
-	} else {
+// function quick_Sort(origArray) {
+// 	if (origArray.length <= 1) { 
+// 		return origArray;
+// 	} else {
 
-		var left = [];
-		var right = [];
-		var newArray = [];
-		var pivot = origArray.pop();
-		var length = origArray.length;
+// 		var left = [];
+// 		var right = [];
+// 		var newArray = [];
+// 		var pivot = origArray.pop();
+// 		var length = origArray.length;
 
-		for (var i = 0; i < length; i++) {
-			if (origArray[i] <= pivot) {
-				left.push(origArray[i]);
-			} else {
-				right.push(origArray[i]);
-			}
-		}
+// 		for (var i = 0; i < length; i++) {
+// 			if (origArray[i] <= pivot) {
+// 				left.push(origArray[i]);
+// 			} else {
+// 				right.push(origArray[i]);
+// 			}
+// 		}
 
-		return newArray.concat(quick_Sort(left), pivot, quick_Sort(right));
-	}
+// 		return newArray.concat(quick_Sort(left), pivot, quick_Sort(right));
+// 	}
+// }
+
+// var myArray = [3, 0, 2, 5, -1, 4, 1 ];
+
+// console.log("Original array: " + myArray);
+// var sortedArray = quick_Sort(myArray);
+// console.log("Sorted array: " + sortedArray);
+
+// Hackrank problem: student grades rounding 
+
+//conditions:
+//IF grade different between the next multiple of 5 is less than 3, round up to that number. 
+//IF grade is less than 40, it is considered failing 
+
+function gradingStudents(grades) {
+    //input array of grades 
+    //do a for loop of each grade using a map iteration 
+    //set up condition in map that checks number against the next multiple of 5, if the diff is < 2, round to the next multiple 
+    //if it is less than 40, keep that number 
+    //return new array with adjusted rounding 
+
+    const curvedGrades = grades.map(grade => {
+    if (grade < 40) {
+        grade; 
+    } else if ((Math.abs(grade - Math.ceil(grade/5)*5)) < 3) {
+            Math.ceil(grade/5) * 5;  
+    } else {
+        grade; 
+    }
+
+    return curvedGrades; 
+
+})
 }
 
-var myArray = [3, 0, 2, 5, -1, 4, 1 ];
+console.log(gradingStudents([19, 35, 40, 67, 69, 75, 88, 100, 91])); 
 
-console.log("Original array: " + myArray);
-var sortedArray = quick_Sort(myArray);
-console.log("Sorted array: " + sortedArray);
