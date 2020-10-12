@@ -11,6 +11,9 @@ const subscriberSchema = new mongoose.Schema({
     }, 
     subscribedDate: {
         type: Date, 
-        required: true 
+        required: true, 
+        default: Date.now  
     }
-})
+}); 
+
+module.exports = mongoose.model('Subscriber', subscriberSchema)
